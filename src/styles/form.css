@@ -1,18 +1,15 @@
 .form {
   grid-area: form;
   max-width: 512px;
-
   background-color: #232225;
   border-radius: 0.75rem;
-
   padding: 5rem;
-  padding-bottom: 1.5rem;
-
   display: flex;
   flex-direction: column;
-
   overflow-y: scroll;
+  gap: 1rem;
 }
+
 
 .form > header {
   max-width: 21rem;
@@ -36,7 +33,7 @@
 }
 
 .input {
-  width: 100%;
+  width: 30%;
   height: 3rem;
 
   border: 1px solid #3e3c41;
@@ -44,11 +41,11 @@
   border-radius: 0.5rem;
 
   display: flex;
-  margin-bottom: 1.5rem;
 }
 
 .input i {
   margin-right: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .input input {

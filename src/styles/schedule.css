@@ -3,16 +3,17 @@
   padding: 5rem 7.75rem;
 }
 
-.schedule > header {
-  margin-bottom: 2rem;
+.schedule div {
+  display: flex;
+  align-items: center;
 }
 
-.schedule > header h1 {
+.schedule div > header h1 {
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.schedule > header p {
+.schedule div > header p {
   color: #98959d;
   font-size: 0.87rem;
 }
@@ -77,6 +78,10 @@
   opacity: 0.7;
 }
 
+.buttonContainer {
+  justify-content: right;
+}
+
 .schedule-period ul li strong {
   margin-right: 1.25rem;
 }
@@ -90,4 +95,5 @@
   .schedule > header {
     flex-direction: column;
   }
+
 }
