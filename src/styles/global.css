@@ -58,6 +58,12 @@ aside {
   width: 8.7rem;
 }
 
+.icon {
+  color: #b8952e;
+  width: 1rem;
+  height: 1rem;
+}
+
 @media (max-width: 1100px) {
   :root {
     font-size: 14px;

@@ -14,7 +14,9 @@
 
 .close {
     width: 45%;
-    background-color: #f7efd8;
+    background-color: #232225;
+    color: #f7efd8;
+    border: 2px solid #ada897;
 }
 
 .center {
@@ -23,7 +25,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border: 0;
-    border-radius: 0.75rem;
+    border-radius: 0.8rem;
 }
 
 .modalInputIcon {
@@ -33,3 +35,21 @@
 .modalH1 {
     color: #f7efd8;
 }
+
+#dateHourWrapper {
+    display: flex;
+    gap: .5rem;
+}
+
+dialog[open] {
+    animation: fadein .3s ease-in forwards;
+  }
+  
+  @keyframes fadein{
+    0%{
+      opacity:0;
+    }
+    100%{
+      opacity:1;
+    }
+  }

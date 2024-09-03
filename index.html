@@ -2,68 +2,102 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="./src/assets/scissors.svg" />
+    <link rel="icon" href="./src/assets/scissors.svg" />
 
-  <title>Pet Shop Schedule</title>
+    <title>Pet Shop Schedule</title>
 </head>
 
 <body>
-  <div class="container">
-    <!-- <img src="./src/assets/logo.svg" alt="Logo" class="logo" /> -->
-    <dialog id="dialog" class="center">
-      <form class="form">
-        <header>
-          <h1 class="modalH1">Agende um atendimento</h1>
-          <p>
-            Preencha os dados do cliente para realizar o agendamento:
-          </p>
-        </header>
+    <div class="container">
+        <!-- <img src="./src/assets/logo.svg" alt="Logo" class="logo" /> -->
+        <dialog id="dialog" class="center">
+            <form class="form" id="form">
+                <header>
+                    <h1 class="modalH1">Agende um atendimento</h1>
+                    <p>
+                        Preencha os dados do cliente para realizar o agendamento:
+                    </p>
+                </header>
 
-        <label for="client" class="label">Nome do tutor</label>
-        <div class="input modalInput">
-          <i class="modalInputIcon"><img src="./src/assets/person.svg" alt="Pessoa"/></i>
-          <input type="text" id="client" name="client" placeholder="Nome do cliente" class="modalInput" required />
-        </div>
+                <label class="label">Nome do tutor</label>
+                <div class="input modalInput">
+                    <i class="modalInputIcon"><img src="./src/assets/person.svg" alt="Pessoa" /></i>
+                    <input type="text" id="clientName" name="client" placeholder="Nome do cliente" class="modalInput"
+                        required />
+                </div>
 
-        <label for="client" class="label">Cliente</label>
-        <div class="input modalInput">
-          <i class="modalInputIcon"><img src="./src/assets/person.svg" alt="Pessoa" /></i>
-          <input type="text" id="client" name="client" placeholder="Nome do cliente" class="modalInput" required />
-        </div>
-        <div class="modalButtonWrapper">
-          <button type="submit" class="button close" id="closeModal">Fechar</button>
-          <button type="submit" class="button record" id="recordButton">Agendar</button>
-        </div>
-      </form>
-    </dialog>
+                <label class="label">Nome do pet</label>
+                <div class="input modalInput">
+                    <i class="modalInputIcon"><img src="./src/assets/petPaw.svg.svg" class="icon" alt="Pessoa" /></i>
+                    <input type="text" id="petName" name="petName" placeholder="Nome do pet" class="modalInput"
+                        required />
+                </div>
 
-    <aside class="schedule">
-      <div class="schedule-container">
-        <header>
-          <h1>Agendamentos</h1>
-          <p>Visualize e selecione os agendamentos de acordo com o dia selecionado</p>
-        </header>
-        <div class="input">
-          <i><img src="./src/assets/calendar.svg" alt="Calendário" /></i>
-          <input type="date" id="date" name="date" class="inputSchedules" required />
-        </div>
-      </div>
+                <label class="label">Telefone</label>
+                <div class="input modalInput">
+                    <i class="modalInputIcon"><img src="./src/assets/phone.svg" class="icon" alt="Pessoa" /></i>
+                    <input type="text" id="phoneInput" name="phone" placeholder="(99) 9 9999-9999" class="modalInput"
+                        required maxlength="15" />
+                </div>
 
-      <section class="schedule-period">
-        <header>
-          <img src="./src/assets/morning.svg" alt="Manhã" />
-          <strong>Manhã</strong>
-          <span>09h-12h</span>
-        </header>
-        <ul id="period-morning" class="period">
-          <!-- Exemplo  
+                <label class="label">Descrição do serviço</label>
+                <div class="input modalInput">
+                    <input type="text" id="description" name="client" placeholder="Descrição do serviço"
+                        class="modalInput" required />
+                </div>
+
+                <div id="dateHourWrapper">
+                    <div>
+                        <label class="label">Data</label>
+                        <div class="input modalInput">
+                            <i class="modalInputIcon"><img src="./src/assets/calendar.svg" class="icon"
+                                    alt="Pessoa" /></i>
+                            <input type="date" id="date" name="date" placeholder="01/01/2000" class="modalInput"
+                                required />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="label">Hora</label>
+                        <div class="input modalInput">
+                            <i class="modalInputIcon"><img src="./src/assets/clock.svg" class="icon" alt="Pessoa" /></i>
+                            <input type="text" id="hour" name="hour" placeholder="hh:mm" class="modalInput" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="modalButtonWrapper">
+                    <button class="button close" id="closeModal">Fechar</button>
+                    <button type="submit" class="button record" id="recordButton">Agendar</button>
+                </div>
+            </form>
+        </dialog>
+
+        <aside class="schedule">
+            <div class="schedule-container">
+                <header>
+                    <h1>Agendamentos</h1>
+                    <p>Visualize e selecione os agendamentos de acordo com o dia selecionado</p>
+                </header>
+                <div class="input">
+                    <i><img src="./src/assets/calendar.svg" alt="Calendário" /></i>
+                    <input type="date" id="scheduleDate" name="date" class="inputSchedules" required />
+                </div>
+            </div>
+
+            <section class="schedule-period">
+                <header>
+                    <img src="./src/assets/morning.svg" alt="Manhã" />
+                    <strong>Manhã</strong>
+                    <span>09h-12h</span>
+                </header>
+                <ul id="period-morning" class="period">
+                    <!-- Exemplo  
             <li>
               <strong>11:00</strong>
               <span>Rodrigo Gonçalves</span>
@@ -73,17 +107,17 @@
                 class="cancel-icon"
               />
             </li>-->
-        </ul>
-      </section>
+                </ul>
+            </section>
 
-      <section class="schedule-period">
-        <header>
-          <img src="./src/assets/afternoon.svg" alt="Tarde" />
-          <strong>Tarde</strong>
-          <span>13h-18h</span>
-        </header>
-        <ul id="period-afternoon" class="period">
-          <!-- Exemplo 
+            <section class="schedule-period">
+                <header>
+                    <img src="./src/assets/afternoon.svg" alt="Tarde" />
+                    <strong>Tarde</strong>
+                    <span>13h-18h</span>
+                </header>
+                <ul id="period-afternoon" class="period">
+                    <!-- Exemplo 
             <li>
               <strong>14:00</strong>
               <span>Rodrigo Gonçalves</span>
@@ -93,17 +127,17 @@
                 class="cancel-icon"
               />
             </li>-->
-        </ul>
-      </section>
+                </ul>
+            </section>
 
-      <section class="schedule-period">
-        <header>
-          <img src="./src/assets/night.svg" alt="noite" />
-          <strong>noite</strong>
-          <span>19h-21h</span>
-        </header>
-        <ul id="period-night" class="period">
-          <!-- Exemplo 
+            <section class="schedule-period">
+                <header>
+                    <img src="./src/assets/night.svg" alt="noite" />
+                    <strong>noite</strong>
+                    <span>19h-21h</span>
+                </header>
+                <ul id="period-night" class="period">
+                    <!-- Exemplo 
             <li>
               <strong>19:00</strong>
               <span>Rodrigo Gonçalves</span>
@@ -113,13 +147,13 @@
                 class="cancel-icon"
               />
             </li>-->
-        </ul>
-      </section>
-      <div class="buttonContainer">
-        <button type="submit" class="button" id="newScheduling">Novo agendamento</button>
-      </div>
-    </aside>
-  </div>
+                </ul>
+            </section>
+            <div class="buttonContainer">
+                <button type="submit" class="button" id="newScheduling">Novo agendamento</button>
+            </div>
+        </aside>
+    </div>
 </body>
 
 </html>

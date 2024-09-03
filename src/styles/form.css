@@ -2,8 +2,8 @@
   grid-area: form;
   max-width: 512px;
   background-color: #232225;
-  border-radius: 0.75rem;
-  padding: 5rem;
+  border-radius: 0.81rem;
+  padding: 2rem 4rem 2rem 4rem;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -13,7 +13,7 @@
 
 .form > header {
   max-width: 21rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form > header h1 {
@@ -82,6 +82,10 @@
 
 .button:hover {
   background-color: #dbc170;
+}
+
+.close:hover {
+  background-color: #ada897;
 }
 
 ::-webkit-calendar-picker-indicator {
