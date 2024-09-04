@@ -1,3 +1,5 @@
+import { scheduleNew } from "../services/schedules-new.js"
+
 const clientName = document.getElementById("clientName")
 const petName = document.getElementById("petName")
 const phoneInput = document.getElementById("phoneInput")
@@ -6,8 +8,6 @@ const hourInput = document.getElementById("hour")
 const description = document.getElementById("description")
 const scheduleDate = document.getElementById("scheduleDate")
 const form = document.querySelector("form")
-
-let newFormData;
 
 clientName.oninput = () => {
     let value = clientName.value.replace(/[0-9]/g, '')
@@ -28,9 +28,9 @@ hourInput.oninput = () => {
 }
 
 const phoneMask = (value) => {
-    value = value.replace(/\D/g,'')
-    value = value.replace(/(\d{2})(\d)/,"($1) $2")
-    value = value.replace(/(\d)(\d{4})$/,"$1-$2")
+    value = value.replace(/\D/g, '')
+    value = value.replace(/(\d{2})(\d)/, "($1) $2")
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2")
     return value
 }
 
@@ -41,21 +41,29 @@ const timeMask = (value) => {
     return value;
 }
 
-form.onsubmit = (event) => {
+form.onsubmit = async (event) => {
     event.preventDefault()
-    const date = new Date()
 
-    const newFormData = {
-        id: date.getTime(),
-        tutorName: clientName.value,
-        petName: petName.value,
-        phone: phoneInput.value,
-        reservedDate: dateInput.value,
-        reservedHour: hourInput.value,
-        description: description.value,
-        date: scheduleDate.value,
+    try {
+        const date = new Date()
+
+        await scheduleNew (
+            {
+                id: date.getTime(),
+                tutorName: clientName.value,
+                petName: petName.value,
+                phone: phoneInput.value,
+                reservedDate: dateInput.value,
+                reservedHour: hourInput.value,
+                description: description.value,
+                date: scheduleDate.value,
+            }
+        )
+    } catch (error) {
+        console.log(error)
+        alert("Não foi possível cadastrar um agendamento")
     }
-    
+
 }
 
 

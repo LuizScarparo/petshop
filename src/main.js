@@ -11,3 +11,4 @@ import "./libs/dayjs.js"
 //importa js funcional
 import "./dialogOpen/dialog.js"
 import "./form/data.js"
+import "./load/actions/load.js"
