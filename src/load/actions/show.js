@@ -18,7 +18,8 @@ export function schedulesShow({ dailySchedules }) {
             const description = document.createElement("span")
 
             li.setAttribute("data-id", "schedule-id")
-            timeStrong.textContent = dayjs(schedule.reservedHour).format("HH:mm")
+            timeStrong.textContent = schedule.reservedHour
+
             nameSpan.textContent = schedule.petName
             tutorSpan.textContent = schedule.tutorName
             description.textContent = schedule.description
@@ -28,19 +29,22 @@ export function schedulesShow({ dailySchedules }) {
             cancelIcon.setAttribute("src", "./src/assets/cancel.svg")
             cancelIcon.setAttribute("alt", "Cancelar")
 
-            li.append(li, timeStrong, nameSpan, "/", tutorSpan, description)
+            li.append(timeStrong, nameSpan, "/", tutorSpan, description, cancelIcon)
 
-            const hour = dayjs(schedule.reservedHour).hour()
+            // const hour = dayjs(schedule.reservedHour).hour()
+            const [hour] = schedule.reservedHour.split(":")
+            console.log(hour)
 
             if (hour <= 12) {
                 periodMorning.appendChild(li)
-            } else if (hour > 12 && hour < 18) {
+            } else if (hour > 12 && hour <= 18) {
                 periodAfternoon.appendChild(li)
             } else {
                 periodNight.appendChild(li)
             }
 
         });
+
         
     } catch (error) {
         alert("Não foi possível exibir os agendamentos")

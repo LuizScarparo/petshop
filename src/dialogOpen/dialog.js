@@ -8,6 +8,7 @@ newSchedulingButton.onclick = (event) => {
     dialog.showModal()
 }
 
-closeModalButton.onclick = () => {
+closeModalButton.onclick = (event) => {
+    event.preventDefault()
     dialog.close()
 }
